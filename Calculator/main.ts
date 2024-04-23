@@ -87,4 +87,5 @@ async function Calculator() {
 
 }
 
+console.clear();
 Calculator();

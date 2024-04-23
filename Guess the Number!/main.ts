@@ -6,16 +6,7 @@ let randomNumber: number;
 let score: number = 100;
 let correct: number = 0;
 
-console.log(
-    "\n\tWelcome to the Number Guessing Game!\n" +
-    "\nInstructions\n" + 
-    "  ~ A random number will be generated\n" +
-    "  ~ On every wrong guess your score will be deducted\n" +
-    "  ~ On every correct guess, you will gain score\n" +
-    "  ~ Game ends when your score falls below 0"
-);
-
-setTimeout(async() => {
+async function game(randomNumber: number, score: number, correct: number) {    
 
     // ROUND 1
     randomNumber = Math.floor(Math.random() * 10);
@@ -125,5 +116,19 @@ setTimeout(async() => {
         } while (score >0 && correct == 0);
     }
     
+}
+
+console.clear();
+console.log(
+    "\n\tWelcome to the Number Guessing Game!\n" +
+    "\nInstructions\n" + 
+    "  ~ A random number will be generated\n" +
+    "  ~ On every wrong guess your score will be deducted\n" +
+    "  ~ On every correct guess, you will gain score\n" +
+    "  ~ Game ends when your score falls below 0"
+);
+
+setTimeout(async() => {
+    game(randomNumber, score, correct)
 }, 2000);
 

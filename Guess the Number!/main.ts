@@ -5,11 +5,13 @@ import inquirer from "inquirer";
 let randomNumber: number;
 let score: number = 100;
 let correct: number = 0;
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function game(randomNumber: number, score: number, correct: number) {    
 
     // ROUND 1
     randomNumber = Math.floor(Math.random() * 10);
+    console.clear();
     console.log(`\n\n\tROUND 1\n\nA random number has been generated (0-9)`);
 
     do {
@@ -39,6 +41,7 @@ async function game(randomNumber: number, score: number, correct: number) {
             correct = 1;
             score += 30;
             console.log("\nCorrect! Lets proceed to Round 2");
+            await sleep(2000);
         }
 
     } while (score >0 && correct == 0);
@@ -46,6 +49,7 @@ async function game(randomNumber: number, score: number, correct: number) {
     // ROUND 2
     if (correct == 1) {
         randomNumber = Math.floor(Math.random() * 100);
+        console.clear();
         console.log(`\n\n\tROUND 2\n\nA random number has been generated (0-99)`);
 
         do {
@@ -75,6 +79,7 @@ async function game(randomNumber: number, score: number, correct: number) {
                 correct = 1;
                 score += 40;
                 console.log("\nCorrect! Lets proceed to Round 3");
+                await sleep(2000);
             }
 
         } while (score >0 && correct == 0);
@@ -83,6 +88,7 @@ async function game(randomNumber: number, score: number, correct: number) {
     // ROUND 3    
     if (correct == 1) {
         randomNumber = Math.floor(Math.random() * 1000);
+        console.clear();
         console.log(`\n\n\tROUND 3\n\nA random number has been generated (0-999)`);
 
         do {
@@ -111,6 +117,7 @@ async function game(randomNumber: number, score: number, correct: number) {
             } else {
                 correct = 1;
                 console.log("\nCorrect! \n\nYou Win!\n");
+                await sleep(2000);
             }
 
         } while (score >0 && correct == 0);

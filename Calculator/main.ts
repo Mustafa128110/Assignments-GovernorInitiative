@@ -2,6 +2,8 @@
 
 import inquirer from "inquirer";
 
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+
 async function Calculator() {
 
     let terminate: number = 0;
@@ -82,10 +84,12 @@ async function Calculator() {
             }
 
         }
+        await sleep(2000);
+        console.clear();
 
     } while (terminate != 1);
 
 }
 
-console.clear();
+
 Calculator();

@@ -3,9 +3,11 @@ import inquirer from "inquirer";
 let randomNumber;
 let score = 100;
 let correct = 0;
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 async function game(randomNumber, score, correct) {
     // ROUND 1
     randomNumber = Math.floor(Math.random() * 10);
+    console.clear();
     console.log(`\n\n\tROUND 1\n\nA random number has been generated (0-9)`);
     do {
         let answer = await inquirer.prompt([
@@ -35,6 +37,7 @@ async function game(randomNumber, score, correct) {
             correct = 1;
             score += 30;
             console.log("\nCorrect! Lets proceed to Round 2");
+            await sleep(2000);
         }
     } while (score > 0 && correct == 0);
     // ROUND 2
@@ -70,6 +73,7 @@ async function game(randomNumber, score, correct) {
                 correct = 1;
                 score += 40;
                 console.log("\nCorrect! Lets proceed to Round 3");
+                await sleep(2000);
             }
         } while (score > 0 && correct == 0);
     }
@@ -105,6 +109,7 @@ async function game(randomNumber, score, correct) {
             else {
                 correct = 1;
                 console.log("\nCorrect! \n\nYou Win!\n");
+                await sleep(2000);
             }
         } while (score > 0 && correct == 0);
     }

@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 async function Calculator() {
     let terminate = 0;
     do {
@@ -67,6 +68,8 @@ async function Calculator() {
                 break;
             }
         }
+        await sleep(2000);
+        console.clear();
     } while (terminate != 1);
 }
 Calculator();
